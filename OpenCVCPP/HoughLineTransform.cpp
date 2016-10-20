@@ -61,10 +61,10 @@ void GeoTransform()
 	for (int i = 0; i < 4; i++)
 		src_points[i] = point_list[i];
 	auto T = getPerspectiveTransform(src_points, targets);
-	auto T2 = getAffineTransform(src_points, targets);
+	//auto T2 = getAffineTransform(src_points, targets);
 	Mat dest_image;
-	//warpPerspective(src, dest_image, T, Size(300, 300));
-	warpAffine(src, dest_image, T2, Size(300, 300));
+	warpPerspective(src, dest_image, T, Size(300, 300));
+	//warpAffine(src, dest_image, T2, Size(300, 300));
 	imshow("Transformed image", dest_image);
 }
 
